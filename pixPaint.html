@@ -30,6 +30,7 @@
                     <button class="btn"><i class="fa fa-exchange"></i></button>
                     <button class="btn"><i class="fa fa-gear"></i></button>
                     <button class="btn"><i class="fa fa-sign-in"></i></button>
+                    
                 </div>
             </div>
         </div>
@@ -40,21 +41,34 @@
                 <button class="btn"><i class="fa fa-trash"></i></button>
                 <button class="btn"><i class="fa fa-user"></i></button>
                 <button class="btn"><i class="fa fa-wrench"></i></button>
-                <button class="btn"><i class="fa fa-trash"></i></button>
+                <div class="card">
+                    <div class="card-body text-center d-flex justify-content-center align-items-center flex-column">
+                      <p>Click the dark square to activate the Color Picker</p>
+                      <div id="color-picker-1" class="mx-auto"></div>
+                    </div>
+                </div>
+                <label>Drawing tool:
+                    <select id="dtool">
+                        <option value="line">Line</option>
+                        <option value="rect">Rectangle</option>
+                        <option value="pencil">Pencil</option>
+                    </select>
+                </label>
             </div>
             <div class="previewWrapper">
                 <label style="text-align:center; font-size: 16;font-weight: bold; background-color: transparent; width: 100%;">Preview</label>
                 <img id="imgPreview" src="">
             </div>
         </div>
+        
 
         <div class="fieldMaker">
             <div id="container">
-                <script src="assets/js/drawingCanvas.js">
-                    
-                    document.querySelector("#container").appendChild(startPixelEditor({}));
-                </script>
-            </div>
+                <canvas id="imageView" width="500" height="500">
+                    <p>Unfortunately, your browser is currently unsupported by our web application. We are sorry for the inconvenience. Please use one of the supported browsers listed below, or draw the image you want using an offline tool.</p>
+                    <p>Supported browsers: <a href="https://www.opera.com">Opera</a>, <a href="http://www.mozilla.com">Firefox</a>, and <a href="https://www.google.com/chrome">Google Chrome</a>.</p>
+                </canvas>
+            </div>        
         </div>
     </div>
     
@@ -67,7 +81,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    
+    <script src="assets/js/drawingCanvas.js"></script>
+    <script src="assets/js/colorPalette.js"></script>
 </body>
 
 </html>
