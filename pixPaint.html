@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/mycss.css">
+    <link rel="stylesheet" href="assets/css/view.css">
 
     <style type="text/css">
 
@@ -17,8 +17,8 @@
 </head>
 
 <body>
-    <div class="row my-row">
-        <div class="col-1" style="display: table-cell;">
+    <div class="my-row">
+        <div>
             <div class="menubar">
                 <div class="flex-container1">
                     <button class="btn"><i class="fa fa-user"></i></button>
@@ -30,35 +30,48 @@
                     <button class="btn"><i class="fa fa-exchange"></i></button>
                     <button class="btn"><i class="fa fa-gear"></i></button>
                     <button class="btn"><i class="fa fa-sign-in"></i></button>
+                    
                 </div>
             </div>
         </div>
-        <div class="col-3 tooltab">
+        <div class="tooltab">
             <div class="">
                 <button class="btn"><i class="fa fa-user"></i></button>
                 <button class="btn"><i class="fa fa-wrench"></i></button>
                 <button class="btn"><i class="fa fa-trash"></i></button>
                 <button class="btn"><i class="fa fa-user"></i></button>
                 <button class="btn"><i class="fa fa-wrench"></i></button>
-                <button class="btn"><i class="fa fa-trash"></i></button>
+                <div class="card">
+                    <div class="card-body text-center d-flex justify-content-center align-items-center flex-column">
+                      <p>Click the dark square to activate the Color Picker</p>
+                      <div id="color-picker-1" class="mx-auto"></div>
+                    </div>
+                </div>
+                <label>Drawing tool:
+                    <select id="dtool">
+                        <option value="line">Line</option>
+                        <option value="rect">Rectangle</option>
+                        <option value="pencil">Pencil</option>
+                    </select>
+                </label>
             </div>
             <div class="previewWrapper">
-                <img class="">
                 <label style="text-align:center; font-size: 16;font-weight: bold; background-color: transparent; width: 100%;">Preview</label>
                 <img id="imgPreview" src="">
             </div>
         </div>
+        
 
-            <div class="col-8 fieldMaker">
-                <div id="container">
-                    <canvas id="imageView" width="400" height="300">
-                        <p>Unfortunately, your browser is currently unsupported by our web application. We are sorry for the inconvenience. Please use one of the supported browsers listed below, or draw the image you want using an offline tool.</p>
-                        <p>Supported browsers: <a href="https://www.opera.com">Opera</a>, <a href="http://www.mozilla.com">Firefox</a>, <a href="http://www.apple.com/safari">Safari</a>, and <a href="http://www.konqueror.org">Konqueror</a>.</p>
-                    </canvas>
-                </div>
-            </div>
+        <div class="fieldMaker">
+            <div id="container">
+                <canvas id="imageView" width="500" height="500">
+                    <p>Unfortunately, your browser is currently unsupported by our web application. We are sorry for the inconvenience. Please use one of the supported browsers listed below, or draw the image you want using an offline tool.</p>
+                    <p>Supported browsers: <a href="https://www.opera.com">Opera</a>, <a href="http://www.mozilla.com">Firefox</a>, and <a href="https://www.google.com/chrome">Google Chrome</a>.</p>
+                </canvas>
+            </div>        
+        </div>
     </div>
-
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -68,8 +81,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
     <script src="assets/js/drawingCanvas.js"></script>
+    <script src="assets/js/colorPalette.js"></script>
 </body>
 
 </html>
