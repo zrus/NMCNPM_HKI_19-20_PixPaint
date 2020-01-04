@@ -19,10 +19,8 @@ app.get('/', (req, res) => {
 });
   
 
-app.set('port', process.env.PORT || 5000);
+const PORT = 5000;
+app.set('port', process.env.PORT || PORT);
 app.listen(app.get('port'), () => {
-    console.log('Server is running');
+    console.log(`Server is running at http://localhost:${app.get('port')}`);
 });
-
-
-
