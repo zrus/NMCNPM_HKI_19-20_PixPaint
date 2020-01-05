@@ -1,17 +1,31 @@
-<title>Index</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/util.css">
+</head>
+
 <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top justify-content-end">
-    <a class="nav-item" style="color: black; margin: 0px 100px;" data-target="#signUp" data-toggle="modal"
-      href="#signUp">
+  {{#if isLoggedIn}}
+    <div class="d-flex flex-column m-r-70">
+        <a class="account-btn btn dropdown-toggle" style="font-size: 19px" href="#" role="button" id="dropdownMenuLink"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i style="margin-right:7px" class="fa fa-user"></i> {{username}}
+        </a>
+        <div class="dropdown-menu" style="left:auto" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/users/profile/{{username}}">Quản lý tài khoản</a>
+            <a class="log-out-btn dropdown-item" href="/users/logout">Đăng xuất</a>
+        </div>
+    </div>
+    {{else}}
+    <a class="nav-item" style="color: black; margin: 0px 100px;" href="/users/register">
       Sign up
     </a>
     <a style="color: black;">|</a>
-    <a class="nav-item" style="color: black; margin: 0px 100px;" data-target="#signIn" data-toggle="modal"
-      href="#signIn">
+    <a class="nav-item" style="color: black; margin: 0px 100px;" href="/users/login">
       Sign in
     </a>
+    {{/if}}
   </nav>
 
-  <div class="modal fade" style="position: absolutely; left: 50%; top: 50%; transform: translate(-50%, -50%);"
+  {{!-- <div class="modal fade" style="position: absolutely; left: 50%; top: 50%; transform: translate(-50%, -50%);"
     id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -91,12 +105,13 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
   <div class="intro">
-    <div class="panel justify-content-center d-flex align-items-center">
+    <div class="panel d-flex justify-content-center align-items-center">
       <h1>Create your own pixel sprites with PixPaint </h1>
     </div>
-    <div class="feature d-flex flex-column justify-content-center d-flex align-items-center">
+
+    <div class="feature d-flex flex-column justify-content-center align-items-center">
       <div class="d-flex justify-content-center flex-column ">
         <h1 style="margin: 0 auto">Main Feature/ Benefit</h1>
         <p style="margin: 0 auto">PixPaint can help users have a quickly design for simple sketches or instance designs
@@ -107,21 +122,21 @@
       </div>
       <div class="row mainfeature">
         <div class="row col benefit">
-          <img class="col-4" src="image/Tick.png"></img>
+          <img class="col-4" src="/image/Tick.png"></img>
           <div class="col-8">
             <h3>Draw</h3>
             <p>Draw freely, with many different tools to choose</p>
           </div>
         </div>
         <div class="row col">
-          <img class="col-4" src="image/Tick.png"></img>
+          <img class="col-4" src="/image/Tick.png"></img>
           <div class="col-8">
             <h3>Import/export</h3>
             <p>Import photos with many different formats, export back to many formats</p>
           </div>
         </div>
         <div class="row col">
-          <img class="col-4" src="image/Tick.png"></img>
+          <img class="col-4" src="/image/Tick.png"></img>
           <div class="col-8">
             <h3>Create GIFs</h3>
             <p>Export your design to GIFS</p>
@@ -129,12 +144,13 @@
         </div>
       </div>
     </div>
-    <div class="Productshot justify-content-center d-flex align-items-center flex-column">
+
+    <div class="Productshot d-flex justify-content-center align-items-center flex-column">
       <h1>Image Gallery/Product shots</h1>
       <div class="d-flex flex-row">
-        <img class="image" src="image/example1.png">
-        <img class="image" src="image/example2.png">
-        <img class="image" src="image/example3.png">
+        <img class="image" src="/image/example1.png">
+        <img class="image" src="/image/example2.png">
+        <img class="image" src="/image/example3.png">
       </div>
     </div>
   </div>
