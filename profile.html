@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<style>
+    .background {
+        height: 250px;
+        background-image: url('image/pannel.jpg');
+        position: relative;
+    }
+
+    .username {
+        margin-right: 20px;
+        font-size: 42px;
+        font-weight: 700;
+    }
+
+    .userinfo {
+        margin-left: 20px;
+        font-family: "Calistoga";
+    }
+
+    .gmail {
+        font-family: "Asap";
+        color: #007bff;
+        font-style: italic;
+
+    }
+
+    .header_font {
+        font-family: "Calistoga";
+        margin-bottom: 20px;
+    }
+
+    .inputnewname {
+        border-radius: 5px;
+    }
+
+    .info {
+        position: absolute;
+        bottom: 10px;
+        left: 30px;
+    }
+
+    .editbutton {
+        font-size: 13px !important;
+        border-radius: 20px !important;
+        background-color: darkgrey !important;
+    }
+
+    .username {
+        margin-right: 20px;
+    }
+
+    .inputnewname {
+        border-radius: 5px;
+    }
+
+    .gallery {
+        font-family: 'Changa One', cursive;
+        margin-bottom: 20px;
+    }
+
+    .galleryarea {
+        margin: 20px 0px 0px 30px;
+    }
+
+    .title {
+        font-family: 'Changa One', cursive;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .gallerypicture {
+        height: 310px;
+        width: 400px;
+    }
+
+    .img-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    .img-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+
+    .img-overlay:before {
+        content: ' ';
+        display: block;
+        /* adjust 'height' to position overlay content vertically */
+        height: 33%;
+    }
+
+    .export {
+        position: absolute;
+        top: 8%;
+        left: 22%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        font-size: 13px !important;
+        border-radius: 20px !important;
+        background-color: darkgrey !important;
+    }
+
+    .export:hover {
+        background-color: black !important;
+    }
+
+</style>
+
+<head>
+    <title>Profile</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="d-flex flex-row info">
+            <img src="image/avataru.png" alt="avataruser" height="150px" width="150px">
+            <div class="userinfo">
+                <h1 class="username">Huutuan</h1>
+                <h5 class="gmail">Huutuan345679@gmail.com</h5>
+                <button type="button" class="btn btn-info btn-lg editbutton" data-toggle="modal"
+                    data-target="#myModal"><i class="fa fa-edit"></i> Edit</button>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Change user name</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                New user name:<br>
+                                <input class="inputnewname" type="text" name="username"><br>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="galleryarea">
+        <h3 class="gallery">GALLERY <i class="fa fa-image"></i></h3>
+        <div class="row">
+            <div class="col-4 d-flex flex-column align-items-center">
+                <img class="gallerypicture" src="image/giphy.gif" data-target="#modalIMG" data-toggle="modal" href="#">
+                <button class="export"><i class="fa fa-file"></i> Export</button>
+                <h7 class="title">Image1</h7>
+            </div>
+
+            <div class="col-4 d-flex flex-column align-items-center">
+                <img class="gallerypicture" src="image/example2.png" data-target="#modalIMG" data-toggle="modal" href="#">
+                <button class="export"><i class="fa fa-file"></i> Export</button>
+                <h7 class="title">Image2</h7>
+            </div>
+
+            <div class="col-4 d-flex flex-column align-items-center">
+                <img class="gallerypicture" src="image/example3.png" data-target="#modalIMG" data-toggle="modal" href="#">
+                <button class="export"><i class="fa fa-file"></i> Export</button>
+                <h7 class="title">Image3</h7>
+            </div>
+        </div>
+
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="modalIMG" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body mb-0 p-0">
+                    <img src="image/giphy.gif" alt="" style="width:100%">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+<script>
+    // $('a a').remove();
+
+    //     document.documentElement.setAttribute("lang", "en");
+    //     document.documentElement.removeAttribute("class");
+
+    //     axe.run(function (err, results) {
+    //         console.log(results.violations);
+    //     });
+</script>
+
+</html>
