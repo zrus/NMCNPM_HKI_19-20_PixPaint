@@ -10,10 +10,8 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/view.css">
+    <script type="text/javascript" src='./assets/js/main.js'> </script>
 
-    <style type="text/css">
-
-        </style>
 </head>
 
 <body>
@@ -35,8 +33,8 @@
             </div>
         </div>
         <div class="tooltab">
-            <div class="">
-                <button class="btn"><i class="fa fa-user"></i></button>
+            <div id="tools-container">
+                <!-- <button id="someBtn" class="btn"><i class="fa fa-user"></i></button>
                 <button class="btn"><i class="fa fa-wrench"></i></button>
                 <button class="btn"><i class="fa fa-trash"></i></button>
                 <button class="btn"><i class="fa fa-user"></i></button>
@@ -53,7 +51,7 @@
                         <option value="rect">Rectangle</option>
                         <option value="pencil">Pencil</option>
                     </select>
-                </label>
+                </label> -->
             </div>
             <div class="previewWrapper">
                 <label style="text-align:center; font-size: 16;font-weight: bold; background-color: transparent; width: 100%;">Preview</label>
@@ -64,10 +62,28 @@
 
         <div class="fieldMaker">
             <div id="container">
-                <canvas id="imageView" width="500" height="500">
+                <!-- <canvas id="imageView" width="500" height="500">
                     <p>Unfortunately, your browser is currently unsupported by our web application. We are sorry for the inconvenience. Please use one of the supported browsers listed below, or draw the image you want using an offline tool.</p>
                     <p>Supported browsers: <a href="https://www.opera.com">Opera</a>, <a href="http://www.mozilla.com">Firefox</a>, and <a href="https://www.google.com/chrome">Google Chrome</a>.</p>
-                </canvas>
+                </canvas> -->
+                <script>
+                    const startState = {
+              tool: "draw",
+              color: "#000000",
+              picture: Picture.empty(60, 30, "#f0f0f0"),
+              done: [],
+              doneAt: 0
+            };
+            
+            const baseTools = {draw, fill, rectangle, pick, eraser};
+            
+            const baseControls = [
+              ToolSelect, ColorSelect, SaveButton, LoadButton, UndoButton
+            ];
+              
+                  document.querySelector("div#container")
+                    .appendChild(startPixelEditor({}));
+                </script>
             </div>        
         </div>
     </div>

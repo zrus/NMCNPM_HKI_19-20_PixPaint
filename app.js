@@ -1,24 +1,26 @@
-// console.log('hello world');
+const express = require('express');
+const app = express();
 
-//var sum = function(x, y) {
-//     return x + y;
-//}
+let expressHbs = require('express-handlebars');
 
-// var sum = (x, y) => x + y;
+app.use(express.static(__dirname + '/assets'));
 
-// var utils = require('./utils');
-// var { sum, PI } = utils;
+let hbs = expressHbs.create({
+    extname: 'hbs',
+    defaultLayout: 'layouts',
+    layoutsDir: __dirname + '/views/layouts/'
+});
 
-var MD5 = require('md5.js');
-var { sum, PI } = require('./utils');
+app.engine('hbs', hbs.engine);
+app.set('view engine', 'hbs');
 
-var x = 10;
-var y = 15;
-// var s = sum(x, y);
-// var s = utils.sum(x, y + utils.PI);
-var s = sum(x, y + PI);
-console.group(`${x} + ${y} = ${s}`);
+app.get('/', (req, res) => {
+    res.render('pixpaint');
+});
+  
 
-var raw_pwd = '123456';
-var md5_pwd = new MD5().update(raw_pwd).digest('hex');
-console.log(md5_pwd);
+const PORT = 5000;
+app.set('port', process.env.PORT || PORT);
+app.listen(app.get('port'), () => {
+    console.log(`Server is running at http://localhost:${app.get('port')}`);
+});

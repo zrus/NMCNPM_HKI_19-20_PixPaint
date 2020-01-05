@@ -122,3 +122,48 @@ body{
 	background-color: #151965;
 }
 
+.panel {
+    height: 400px;
+    background-image: url('/image/pannel.jpg');
+  }
+
+  .feature {
+    height: 400px;
+    border-bottom: 2px ridge;
+  }
+
+  .Productshot {
+    height: 400px;
+  }
+
+  .mainfeature {
+    margin: 50px 50px 0px 50px !important;
+  }
+
+  .image {
+    width: 350px;
+    height: 250px;
+    margin: 20px 80px;
+  }
+
+  .navbar {
+    background-color: white;
+  }
+
+  h1,
+  h3 {
+    font-family: "Calistoga";
+  }
+
+  p {
+    font-family: "Asap";
+  }
+
+  .invalid
+  {
+    font-family: "Asap";
+    font-size: 13;
+    color: red;
+  }
+
+
