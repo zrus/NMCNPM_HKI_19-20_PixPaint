@@ -9,7 +9,8 @@ app.use(express.static(__dirname + '/assets'));
 let hbs = expressHbs.create({
     extname: 'hbs',
     defaultLayout: 'layouts',
-    layoutsDir: __dirname + '/views/layouts/'
+    layoutsDir: __dirname + '/views/layouts/',
+    partialsDir:__dirname + '/views/partials'
 });
 
 app.engine('hbs', hbs.engine);
