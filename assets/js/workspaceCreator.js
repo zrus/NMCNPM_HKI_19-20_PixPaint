@@ -183,6 +183,7 @@ class Picture {
       }, ...Object.keys(tools).map(name => elt("option", {
         selected: name == state.tool
       }, name)));
+      document.getElementById("tools-container").appendChild(elt("br"));
       this.dom = elt_append("tools-container", "label", null, "🖌 Tool: ", this.select);
       //document.getElementById("tools-container").appendChild(elt("label", null, "🖌 Tool: ", this.select));
     }

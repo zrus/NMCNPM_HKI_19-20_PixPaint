@@ -141,11 +141,12 @@ body{
   .image {
     width: 350px;
     height: 250px;
-    margin: 20px 0px;
+    margin: 20px 80px;
   }
 
   .navbar {
-    background-color: white;
+	background-color: white;
+	position: relative;
   }
 
   h1,
@@ -275,4 +276,10 @@ body{
 
 .export:hover {
 	background-color: black !important;
+}
+
+.logo
+{
+	height: 60px !important;
+	width: 60px !important;
 }

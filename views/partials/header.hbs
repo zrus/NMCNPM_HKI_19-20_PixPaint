@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light shadow sticky-top row">
+    <div class="col-4 m-l-50">
+        <a href="/">
+        <img class="logo" src="/image/logo.png"></img>
+        </a>
+    </div>
+    <div class="col-4"></div>
+    {{#if isLoggedIn}}
+    <div class="login-locate col-4">
+        <div class="d-flex flex-column m-r-70 m-l-100" style="width: 300px;">
+            <a class="account-btn btn dropdown-toggle" style="font-size: 19px" href="#" role="button"
+                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i style="margin-right:7px" class="fa fa-user"></i> {{username}}
+            </a>
+            <div class="dropdown-menu" style="left:auto; width: 300px;" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="/users/profile/{{username}}">Quản lý tài khoản</a>
+                <a class="log-out-btn dropdown-item" href="/users/logout">Đăng xuất</a>
+            </div>
+        </div>
+        {{else}}
+        
+            <a class="nav-item" style="color: black; margin: 0px 70px 0px 100px;" href="/users/register">
+                Sign up
+            </a>
+            <a style="color: black;">|</a>
+            <a class="nav-item" style="color: black; margin: 0px 20px 0px 70px;" href="/users/login">
+                Sign in
+            </a>
+        
+    </div>
+    {{/if}}
+</nav>
