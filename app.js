@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 app.use('/users', require('./routes/userRouter'));
 
 app.get('/', (req, res) => {
-    res.render('pixpaint');
+    res.render('index');
 });
 
 app.get('/pixpaint', (req, res) => {
