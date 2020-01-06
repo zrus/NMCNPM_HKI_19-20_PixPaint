@@ -70,13 +70,26 @@ class Picture {
     canvas.width = picture.width * scale;
     canvas.height = picture.height * scale;
     let cx = canvas.getContext("2d");
-  
+    
+    for (let x = 0; x < canvas.width; x += scale) {
+      cx.moveTo(x, 0);
+      cx.lineTo(x, canvas.height);
+    }
+    
+    for (let y = 0; y < canvas.height; y += scale) {
+      cx.moveTo(0, y);
+      cx.lineTo(canvas.width, y);
+    }
+    
     for (let y = 0; y < picture.height; y++) {
       for (let x = 0; x < picture.width; x++) {
         cx.fillStyle = picture.pixel(x, y);
         cx.fillRect(x * scale, y * scale, scale, scale);
       }
     }
+
+    cx.strokeStyle = "#f0f0f0";
+    cx.stroke();    
   }
   
   PictureCanvas.prototype.mouse = function (downEvent, onDown) {
