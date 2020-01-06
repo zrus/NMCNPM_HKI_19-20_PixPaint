@@ -44,6 +44,10 @@ app.use('/users', require('./routes/userRouter'));
 app.get('/', (req, res) => {
     res.render('index');
 });
+
+app.get('/pixpaint', (req, res) => {
+    res.render('pixpaint');
+})
   
 app.get('/sync', (req, res) => {
     let models = require('./models');
