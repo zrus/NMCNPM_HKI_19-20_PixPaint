@@ -56,12 +56,12 @@
                 const startState = {
                     tool: "draw",
                     color: "#000000",
-                    picture: Picture.empty(60, 30, "#ffffff"),
+                    picture: Picture.empty(120, 56, "#ffffff"),
                     done: [],
                     doneAt: 0
                 };
 
-                const baseTools = { draw, fill, rectangle, pick, eraser };
+                const baseTools = { draw, fill, rectangle, circle, line, pick, eraser };
 
                 const baseControls = [
                     ToolSelect, ColorSelect, SaveButton, LoadButton, UndoButton
