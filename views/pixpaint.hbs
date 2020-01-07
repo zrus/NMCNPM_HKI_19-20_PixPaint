@@ -91,7 +91,7 @@
                 const startState = {
                     tool: "draw",
                     color: "#000000",
-                    picture: Picture.empty($('#widthvalue').val(), $('#heightvalue').val(), "#ffffff"),
+                    picture: Picture.empty($('#widthvalue').val(), $('#heightvalue').val(), "rgba(255, 255, 255, 0"),
                     done: [],
                     doneAt: 0
                 };
@@ -101,6 +101,9 @@
                 const baseControls = [
                     ToolSelect, ColorSelect, SaveButton, LoadButton, UndoButton
                 ];
+
+                document.querySelector("div#container")
+                    .appendChild(createEmptyCanvas({}));
 
                 document.querySelector("div#container")
                     .appendChild(startPixelEditor({}));
