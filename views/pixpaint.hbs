@@ -5,7 +5,30 @@
         <div class="menubar">
             <div class="flex-container1">
                 <button class="btn"><i class="fa fa-user"></i></button>
-                <button class="btn"><i class="fa fa-wrench"></i></button>
+                <button class="btn" id="settingBtn" data-toggle="modal" data-target="#SettingModal"><i
+                        class="fa fa-wrench"></i></button>
+                <div class="modal" id="SettingModal" tabindex="-1" role="dialog" aria-labelledby="settingModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Setting</h4>
+                                <button type="button" class="close" id="closemodal" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="d-flex flex-row settingarea">
+                                Height: <input type="number" class="settinginput" min="1" max="700" id="heightvalue" value="30">
+                            </div>
+                            <div class="d-flex flex-row settingarea">
+                                Width: <input type="number" class="settinginput" min="1" max="700" id="widthvalue" value="60">
+                            </div>
+                            <div class="modal-footer">
+                                <button id="savesetting" class="btn save-button">Save</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 <button class="btn"><i class="fa fa-trash"></i></button>
 
             </div>
@@ -52,11 +75,23 @@
                     <p>Unfortunately, your browser is currently unsupported by our web application. We are sorry for the inconvenience. Please use one of the supported browsers listed below, or draw the image you want using an offline tool.</p>
                     <p>Supported browsers: <a href="https://www.opera.com">Opera</a>, <a href="http://www.mozilla.com">Firefox</a>, and <a href="https://www.google.com/chrome">Google Chrome</a>.</p>
                 </canvas> -->
+
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                    crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                    crossorigin="anonymous"></script>
+                <script src="assets/js/drawingCanvas.js"></script>
+                <script src="assets/js/colorPalette.js"></script>
             <script>
                 const startState = {
                     tool: "draw",
                     color: "#000000",
-                    picture: Picture.empty(120, 56, "#ffffff"),
+                    picture: Picture.empty($('#widthvalue').val(), $('#heightvalue').val(), "#ffffff"),
                     done: [],
                     doneAt: 0
                 };
@@ -69,19 +104,53 @@
 
                 document.querySelector("div#container")
                     .appendChild(startPixelEditor({}));
+
             </script>
         </div>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-<script src="assets/js/drawingCanvas.js"></script>
-<script src="assets/js/colorPalette.js"></script>
+<script>
+    $(function () {
+        $("#savesetting").on('click', function () {
+            if ($('#widthvalue').val() < 1 || $('#widthvalue').val() > 700 || $('#heightvalue').val() < 1 || $('#heightvalue').val() > 700) {
+                alert('Value must be from 1 -> 700');
+            }
+            else {
+                $('#SettingModal').modal('hide');
+                $('.modal-backdrop').remove();
+                $("div#container").empty();
+                $("div#tools-container").empty();
+                const newState = {
+                    tool: "draw",
+                    color: "#000000",
+                    picture: Picture.empty($('#widthvalue').val(), $('#heightvalue').val(), "#ffffff"),
+                    done: [],
+                    doneAt: 0
+                };
+
+                function NewPixelEditor({ state = newState,
+                    tools = baseTools,
+                    controls = baseControls }) {
+                    let app = new PixelEditor(state, {
+                        tools,
+                        controls,
+                        dispatch(action) {
+                            state = historyUpdateState(state, action);
+                            app.syncState(state);
+                        }
+                    });
+                    return app.dom;
+                }
+
+                document.querySelector("div#container")
+                    .appendChild(NewPixelEditor({}));
+
+            }
+        });
+        $('#settingBtn').on('click', function () {
+            $('.modal-backdrop').add();
+        });
+    });
+ 
+</script>
