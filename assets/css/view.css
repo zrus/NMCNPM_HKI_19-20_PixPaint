@@ -303,3 +303,16 @@ body{
 	text-align: center;
 	color: #fff;
 }
+
+.settingarea{
+	margin: 10px !important;
+}
+
+.settinginput{
+	margin-left: 5px !important;
+}
+
+.save-button
+{
+	font-size: 15px;
+}
