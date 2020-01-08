@@ -49,7 +49,7 @@ function elt_append(parent, type, props, ...children) {
   return dom;
 }
 
-const scale = 10;
+let scale = 10;
 
 class PictureCanvas {
   constructor(picture, pointerDown) {
@@ -140,6 +140,7 @@ class EmptyCanvas {
   constructor(state) {
     this.canvas = elt("canvas");
     this.dom = elt("div", {
+      style: "justify-content: center;"
     }, this.canvas);
     this.syncState(state, this.canvas);
   }
@@ -193,7 +194,7 @@ class PixelEditor {
     this.controls = controls.map(
       Control => new Control(state, config));
     this.dom = elt("div", {
-      style: "position: absolute; top: 0;",
+      style: "position: absolute; top: 0; justify-content: center;",
       onkeydown: event => this.keyDown(event, config)
     }, this.canvas.dom, elt("br"));
     // this.dom = elt("div", {}, this.canvas.dom);
