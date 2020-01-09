@@ -162,7 +162,8 @@ class EmptyCanvas {
   }
 }
 
-function createEmptyCanvas({ state = startState }) {
+function createEmptyCanvas(state) {
+  scale = 1600 / state.picture.width;
   let app = new EmptyCanvas(state);
   return app.dom;
 }

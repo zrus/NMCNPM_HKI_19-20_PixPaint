@@ -103,7 +103,7 @@
                 ];
 
                 document.querySelector("div#container")
-                    .appendChild(createEmptyCanvas({}));
+                    .appendChild(createEmptyCanvas(startState));
 
                 document.querySelector("div#container")
                     .appendChild(startPixelEditor({}));
@@ -127,7 +127,7 @@
                 const newState = {
                     tool: "draw",
                     color: "#000000",
-                    picture: Picture.empty($('#widthvalue').val(), $('#heightvalue').val(), "#ffffff"),
+                    picture: Picture.empty($('#widthvalue').val(), $('#heightvalue').val(), "rgba(255, 255, 255, 0"),
                     done: [],
                     doneAt: 0
                 };
@@ -147,7 +147,7 @@
                 }
 
                 document.querySelector("div#container")
-                    .appendChild(createEmptyCanvas({}));
+                    .appendChild(createEmptyCanvas(newState));
                 document.querySelector("div#container")
                     .appendChild(NewPixelEditor({}));
 
