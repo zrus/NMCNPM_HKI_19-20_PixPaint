@@ -196,6 +196,7 @@ class PixelEditor {
       Control => new Control(state, config));
     this.dom = elt("div", {
       style: "position: absolute; top: 0; justify-content: center;",
+      tabIndex: 0,
       onkeydown: event => this.keyDown(event, config)
     }, this.canvas.dom, elt("br"));
     // this.dom = elt("div", {}, this.canvas.dom);
